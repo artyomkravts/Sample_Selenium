@@ -55,7 +55,7 @@ public class MainOrderScenarioTest {
     }
     @Before
     public void setUp() {
-        driver = getDriver(Browser.FIREFOX);
+        driver = getDriver(Browser.CHROME);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @After
