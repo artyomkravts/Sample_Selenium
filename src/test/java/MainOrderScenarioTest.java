@@ -63,16 +63,7 @@ public class MainOrderScenarioTest extends BaseTest{
         MainPage mainPage = new MainPage(driver);
         mainPage.open();
         mainPage.clickOrderButton(orderButton);
-        orderPage.fillName(name);
-        orderPage.fillLastname(lastname);
-        orderPage.fillAddress(address);
-        orderPage.clickMetro(stationIndex); // 4 - Сокольники
-        orderPage.fillPhone(phoneNumber);
-        orderPage.clickNextButton();
-        orderPage.fillDate(ddmmyyyy);
-        orderPage.chooseRentPeriod(daysOfRent);
-        orderPage.selectColor(color);
-        orderPage.fillComment(comment);
+        orderPage.fillInOrderForm(name, lastname, address, stationIndex, phoneNumber, ddmmyyyy, daysOfRent, color, comment);
         orderPage.clickMakeOrder();
         orderPage.clickNo();
         orderPage.clickMakeOrder();

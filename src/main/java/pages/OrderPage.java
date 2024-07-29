@@ -120,6 +120,19 @@ public class OrderPage {
         return driver.findElement(ORDER_MADE_WINDOW).isDisplayed();
     }
 
+    public void fillInOrderForm(String name, String lastname, String address, int stationIndex, String phoneNumber, String ddmmyyyy, int daysOfRent, String color, String comment) {
+        fillName(name);
+        fillLastname(lastname);
+        fillAddress(address);
+        clickMetro(stationIndex); // 4 - Сокольники
+        fillPhone(phoneNumber);
+        clickNextButton();
+        fillDate(ddmmyyyy);
+        chooseRentPeriod(daysOfRent);
+        selectColor(color);
+        fillComment(comment);
+    }
+
     private String getDaysOfRent(int days) {
         switch (days) {
             case 1:
