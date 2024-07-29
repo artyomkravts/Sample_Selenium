@@ -12,25 +12,19 @@ import java.time.Duration;
 
 import static org.hamcrest.CoreMatchers.containsString;
 
-public class MainPageButtonsTest {
+public class MainPageButtonsTest extends BaseTest{
 
-    private WebDriver driver;
     private MainPage mainPage;
 
+    @Override
     @Before
-    public void setUp() throws Exception {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+    public void setUp() {
+        super.setUp();
         mainPage = new MainPage(driver);
         mainPage.open();
     }
 
     @After
-    public void after() {
-        driver.quit();
-    }
 
     @Test
     public void doesSamokatButtonLeadToMainPage() {

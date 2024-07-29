@@ -15,8 +15,7 @@ import pages.OrderPage;
 import java.time.Duration;
 
 @RunWith(Parameterized.class)
-public class MainOrderScenarioTest {
-    WebDriver driver;
+public class MainOrderScenarioTest extends BaseTest{
 
     private String orderButton;
     private String name;
@@ -54,29 +53,9 @@ public class MainOrderScenarioTest {
         };
     }
     @Before
-    public void setUp() {
-        driver = getDriver(Browser.CHROME);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
-    @After
-    public void after() {
-        driver.quit();
-    }
 
-    WebDriver getDriver(Browser browser) {
-        switch (browser) {
-            case CHROME:
-                ChromeOptions chromeOptions  = new ChromeOptions();
-                chromeOptions.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
-                return new ChromeDriver();
-            case FIREFOX:
-                FirefoxOptions firefoxOptions  = new FirefoxOptions();
-                firefoxOptions .addArguments("--no-sandbox", "--disable-dev-shm-usage");
-                return new FirefoxDriver();
-            default:
-                throw new RuntimeException("unable to create web driver");
-        }
-    }
+    @After
+
 
     @Test
     public void mainOrderScenario() {
@@ -110,8 +89,6 @@ public class MainOrderScenarioTest {
                 ", color=" + color +
                 ", comment=" + comment, expectedResult, orderPage.isOrderMadeWindowVisible());
     }
-    enum Browser {
-        CHROME, FIREFOX;
-    }
+
 
 }

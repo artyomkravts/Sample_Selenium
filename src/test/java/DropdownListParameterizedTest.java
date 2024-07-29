@@ -12,9 +12,7 @@ import pages.MainPage;
 import java.time.Duration;
 
 @RunWith(Parameterized.class)
-public class DropdownListParameterizedTest {
-
-    private WebDriver driver;
+public class DropdownListParameterizedTest extends  BaseTest{
 
     private int index;
     private String text;
@@ -37,23 +35,9 @@ public class DropdownListParameterizedTest {
         this.text = text;
     }
 
-    /* Создаём приватное поле driver и экземпляр веб драйвера каждому тесту для:
-     * 1) инкапсуляции
-     * 2) того, чтобы тесты использовали каждый свой драйвер и не аффектили друг друга
-     * 3) экономии ресурсов
-     */
     @Before
-    public void setUp() throws Exception {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--no-sandbox", "--headless", "--disable-dev-shm-usage");
-        driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
 
     @After
-    public void after() {
-        driver.quit();
-    }
 
     @Test
     public void checkAccordionText_sampleText_matches() {
